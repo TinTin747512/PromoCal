@@ -196,9 +196,9 @@ function calculatePromotion(price, quantity, promoType, x, y) {
             break;
 
         case 10: // ซื้อ X แถม Y
-    if (x > 0 && y > 0 && quantity >= x) {
-        const freeUnits = Math.floor(quantity / x) * y;
-        total = quantity * price;
+    if (x > 0 && y > 0) {
+        const freeUnits = Math.floor(quantity / (x + y)) * y;
+        total = (quantity - freeUnits) * price;
     }
     break;
 
