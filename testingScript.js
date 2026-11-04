@@ -196,8 +196,15 @@ function calculatePromotion(price, quantity, promoType, x, y) {
             break;
 
         case 10: // ซื้อ X แถม Y
-    if (x > 0 && y > 0 || quantity < (x + y) || quantity >= (x + y)) {
-        const freeUnits = Math.floor(quantity / (x + y)) * y;
+    if (x > 0 && y > 0) {
+        const setSize = x + y;
+        const fullSets = Math.floor(quantity / setSize);
+        const remaining = quantity % setSize;
+
+        // ส่วนที่เหลือ: ถ้าซื้อถึง x แล้ว ที่เกิน x ถือเป็นของแถม (ไม่เกิน y)
+        const freeFromRemaining = Math.min(Math.max(remaining - x, 0), y);
+
+        const freeUnits = fullSets * y + freeFromRemaining;
         total = (quantity - freeUnits) * price;
     }
     break;
