@@ -274,9 +274,17 @@ function calculateGroup(group) {
     });
 
     // เรียงจากราคาถูกไปแพง
-    data.sort(function (a, b) {
-        return a.total - b.total;
-    });
+let currentRank = 0;
+let previousPrice = null;
+
+results.forEach((product, index) => {
+    if (previousPrice === null || product.total !== previousPrice) {
+        currentRank++;
+    }
+
+    product.rank = currentRank;
+    previousPrice = product.total;
+});
 
     const results = group.querySelector(".results");
     results.innerHTML = "";
