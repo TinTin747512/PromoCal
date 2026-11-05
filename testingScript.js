@@ -273,20 +273,28 @@ function calculateGroup(group) {
         });
     });
 
-    // เรียงจากราคาถูกไปแพง
-   data.sort(function(a, b){
-      return a.total - b.total;   
-   let currentRank = 0;
-   let previousPrice = null;
+    // เรียงสินค้าจากราคาถูกไปแพง
+    data.sort(function (a, b) {
+        return a.total - b.total;
+    });
 
-   results.forEach((product, index) => {
-    if (previousPrice === null || product.total !== previousPrice) {
-        currentRank++;
-    }
+    // กำหนดอันดับแบบ Dense Ranking
+    let currentRank = 0;
+    let previousPrice = null;
 
-    product.rank = currentRank;
-    previousPrice = product.total;
-});
+    data.forEach(function (product) {
+        const roundedPrice = Math.round(product.total * 100) / 100;
+
+        if (
+            previousPrice === null ||
+            roundedPrice !== previousPrice
+        ) {
+            currentRank++;
+        }
+
+        product.rank = currentRank;
+        previousPrice = roundedPrice;
+    });
 
     const results = group.querySelector(".results");
     results.innerHTML = "";
@@ -302,16 +310,17 @@ function calculateGroup(group) {
         return;
     }
 
-    data.forEach(function (item, rank) {
+    // แสดงผลสินค้า
+    data.forEach(function (item) {
         let className = "other";
         let medal = "";
         let bookmark = "";
 
-        if (rank === 0) {
+        if (item.rank === 1) {
             className = "first";
             medal = "🥇";
             bookmark = '<div class="bookmark"></div>';
-        } else if (rank === 1) {
+        } else if (item.rank === 2) {
             className = "second";
             medal = "🥈";
         }
@@ -322,9 +331,13 @@ function calculateGroup(group) {
         result.innerHTML = `
             ${bookmark}
             <div class="result-text">
-                สินค้าชิ้นที่ #${item.index + 1} :
-                <span class="result-name">${escapeHTML(item.name)}</span>
+                อันดับ ${item.rank}
                 <span class="medal">${medal}</span>
+                <br>
+                สินค้าชิ้นที่ #${item.index + 1} :
+                <span class="result-name">
+                    ${escapeHTML(item.name)}
+                </span>
                 <br>
                 <span class="result-price">
                     ${formatNumber(item.total)} บาท
