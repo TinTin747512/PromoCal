@@ -274,10 +274,12 @@ function calculateGroup(group) {
     });
 
     // เรียงจากราคาถูกไปแพง
-let currentRank = 0;
-let previousPrice = null;
+   data.sort(function(a, b){
+      return a.total - b.total;   
+   let currentRank = 0;
+   let previousPrice = null;
 
-results.forEach((product, index) => {
+   results.forEach((product, index) => {
     if (previousPrice === null || product.total !== previousPrice) {
         currentRank++;
     }
