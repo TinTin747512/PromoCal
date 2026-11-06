@@ -142,8 +142,8 @@ function calculatePromotion(price, quantity, promoType, x, y) {
             total = subtotal;
             break;
 
-        case 1: // ลด X บาท
-            total = subtotal - x;
+        case 1: // ลด X บาทต่อชิ้น
+            total = (price - x) * quantity;
             break;
 
         case 2: // ลด X%
