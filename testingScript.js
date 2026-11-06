@@ -32,7 +32,7 @@ function createProductBox() {
             <label>โปรโมชั่น</label>
             <div class="input-wrap">
                 <select class="promotion-select">
-                    <option value="0">ไม่มีโปรโมชั่น</option>
+                    <option value="0">ไม่มีโปรโมชั่น(ไม่ต้องกรอก x กับ y)</option>
                     <option value="1">1.ลด X บาท ต่อชิ้น</option>
                     <option value="2">2.ลด X%</option>
                     <option value="3">3.ซื้อ X หน่วย ราคา Y บาท</option>
