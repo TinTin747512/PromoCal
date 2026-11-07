@@ -10,7 +10,7 @@ body {
 
     color: #292929;
 
-    background-image: url("/HTML/pics/BG2.png");
+    background-image: url("./BG2.png");
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
