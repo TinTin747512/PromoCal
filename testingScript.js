@@ -32,8 +32,8 @@ function createProductBox() {
             <label>โปรโมชั่น</label>
             <div class="input-wrap">
                 <select class="promotion-select">
-                    <option value="0">ไม่มีโปรโมชั่น(ไม่ต้องกรอก x กับ y)</option>
-                    <option value="1">1.ลด X บาท ต่อชิ้น</option>
+                    <option value="0">ไม่มีโปรโมชั่น</option>
+                    <option value="1">1.ลด X บาท</option>
                     <option value="2">2.ลด X%</option>
                     <option value="3">3.ซื้อ X หน่วย ราคา Y บาท</option>
                     <option value="4">4.ซื้อ X หน่วย ลด Y บาท</option>
@@ -53,10 +53,44 @@ function createProductBox() {
                 <input type="number" class="promo-x"
                        placeholder="ค่า X" min="0" step="any">
                 <input type="number" class="promo-y"
-                       placeholder="ค่า Y (ไม่จำเป็น)" min="0" step="any">
+                       placeholder="ค่า Y" min="0" step="any">
             </div>
         </div>
     `;
+
+        // เลือกช่อง X และ Y ตามโปรโมชั่น
+    const promotionSelect = product.querySelector(".promotion-select");
+    const xInput = product.querySelector(".promo-x");
+    const yInput = product.querySelector(".promo-y");
+
+    function updatePromoFields() {
+        const type = Number(promotionSelect.value);
+
+        // โปรโมชั่นที่ไม่ต้องใช้ค่า X หรือ Y
+        if (type === 0) {
+            xInput.style.display = "none";
+            yInput.style.display = "none";
+        }
+
+        // โปรโมชั่นที่ใช้เฉพาะ X
+        else if (type === 1 || type === 2 || type === 13) {
+            xInput.style.display = "";
+            yInput.style.display = "none";
+            yInput.value = "";
+        }
+
+        // โปรโมชั่นที่ใช้ทั้ง X และ Y
+        else {
+            xInput.style.display = "";
+            yInput.style.display = "";
+        }
+    }
+
+    // เมื่อเปลี่ยนโปรโมชั่น ให้ปรับช่องกรอกทันที
+    promotionSelect.addEventListener("change", updatePromoFields);
+
+    // ตั้งค่าเริ่มต้น
+    updatePromoFields();
 
     return product;
 }
@@ -142,8 +176,8 @@ function calculatePromotion(price, quantity, promoType, x, y) {
             total = subtotal;
             break;
 
-        case 1: // ลด X บาทต่อชิ้น
-            total = (price - x) * quantity;
+        case 1: // ลด X บาท
+            total = subtotal - x;
             break;
 
         case 2: // ลด X%
