@@ -8,8 +8,13 @@ body {
 
     font-family: Arial, "Noto Sans Thai", sans-serif;
 
-    background: #ffedcf;
     color: #292929;
+
+    background-image: url("/HTML/pics/BG(color).png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    background-attachment: fixed;
 }
 
 
