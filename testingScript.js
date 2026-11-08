@@ -33,7 +33,7 @@ function createProductBox() {
             <div class="input-wrap">
                 <select class="promotion-select">
                     <option value="0">ไม่มีโปรโมชั่น</option>
-                    <option value="1">1.ลด X บาท</option>
+                    <option value="1">1.ลด X บาทต่อหน่วย</option>
                     <option value="2">2.ลด X%</option>
                     <option value="3">3.ซื้อ X หน่วย ราคา Y บาท</option>
                     <option value="4">4.ซื้อ X หน่วย ลด Y บาท</option>
@@ -176,8 +176,8 @@ function calculatePromotion(price, quantity, promoType, x, y) {
             total = subtotal;
             break;
 
-        case 1: // ลด X บาท
-            total = subtotal - x;
+        case 1: // ลด X บาทต่อหน่วย
+            total = (p - x) * q;
             break;
 
         case 2: // ลด X%
