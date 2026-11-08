@@ -177,7 +177,7 @@ function calculatePromotion(price, quantity, promoType, x, y) {
             break;
 
         case 1: // ลด X บาทต่อหน่วย
-            total = (p - x) * q;
+            total = (price - x) * quantity;
             break;
 
         case 2: // ลด X%
