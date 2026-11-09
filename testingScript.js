@@ -392,7 +392,7 @@ data.sort(function (a, b) {
                 <span class="medal">${medal}</span>
                 สินค้าชิ้นที่ #${item.index + 1}
                 <span class="result-name">
-                    ${escapeHTML(item.name)}
+                    ${escapeHTML(item.name)} : 
                 </span>
                 <span class="result-price">
                     ${formatNumber(item.total)} บาท
