@@ -395,7 +395,6 @@ data.sort(function (a, b) {
                 <span class="result-name">
                     ${escapeHTML(item.name)}
                 </span>
-                <br>
                 <span class="result-price">
                     ${formatNumber(item.total)} บาท
                 </span>
