@@ -391,7 +391,7 @@ data.sort(function (a, b) {
             <div class="result-text">
                 <span class="medal">${medal}</span>
                 สินค้าชิ้นที่ #${item.index + 1}
-<br>
+                <br>
                 <span class="result-name">
                     ${escapeHTML(item.name)}
                 </span>
