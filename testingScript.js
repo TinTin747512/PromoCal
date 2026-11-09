@@ -33,27 +33,27 @@ function createProductBox() {
             <div class="input-wrap">
                 <select class="promotion-select">
                     <option value="0">ไม่มีโปรโมชั่น</option>
-                    <option value="1">1.ลด X บาทต่อหน่วย</option>
-                    <option value="2">2.ลด X%</option>
-                    <option value="3">3.ซื้อ X หน่วย ราคา Y บาท</option>
-                    <option value="4">4.ซื้อ X หน่วย ลด Y บาท</option>
-                    <option value="5">5.ซื้อ X หน่วยขึ้นไป ลด Y บาท</option>
-                    <option value="6">6.ซื้อ X หน่วย ลด Y%</option>
-                    <option value="7">7.ซื้อ X หน่วยขึ้นไป ลด Y%</option>
-                    <option value="8">8.ซื้อ X หน่วย เหลือหน่วยละ Y บาท</option>
-                    <option value="9">9.ซื้อ X หน่วยขึ้นไป เหลือหน่วยละ Y บาท</option>
-                    <option value="10">10.ซื้อ X แถม Y</option>
-                    <option value="11">11.ซื้อครบ X บาท ลด Y บาท</option>
-                    <option value="12">12.ซื้อครบ X บาท ลด Y%</option>
-                    <option value="13">13.ราคาสมาชิก X บาท</option>
+                    <option value="1">1.ลด a บาทต่อหน่วย</option>
+                    <option value="2">2.ลด a%</option>
+                    <option value="3">3.ซื้อ a หน่วย ราคา b บาท</option>
+                    <option value="4">4.ซื้อ a หน่วย ลด b บาท</option>
+                    <option value="5">5.ซื้อ a หน่วยขึ้นไป ลด b บาท</option>
+                    <option value="6">6.ซื้อ a หน่วย ลด b%</option>
+                    <option value="7">7.ซื้อ a หน่วยขึ้นไป ลด b%</option>
+                    <option value="8">8.ซื้อ a หน่วย เหลือหน่วยละ b บาท</option>
+                    <option value="9">9.ซื้อ a หน่วยขึ้นไป เหลือหน่วยละ b บาท</option>
+                    <option value="10">10.ซื้อ a แถม b</option>
+                    <option value="11">11.ซื้อครบ a บาท ลด b บาท</option>
+                    <option value="12">12.ซื้อครบ a บาท ลด b%</option>
+                    <option value="13">13.ราคาสมาชิก a บาท</option>
                 </select>
             </div>
 
             <div class="promo-values">
                 <input type="number" class="promo-x"
-                       placeholder="ค่า X" min="0" step="any">
+                       placeholder="ค่า a" min="0" step="any">
                 <input type="number" class="promo-y"
-                       placeholder="ค่า Y" min="0" step="any">
+                       placeholder="ค่า b" min="0" step="any">
             </div>
         </div>
     `;
