@@ -286,7 +286,7 @@ function calculateGroup(group) {
         const price = Number(priceInput);
         const quantity = Number(quantityInput);
         const promotion = product.querySelector(".promotion-select").value;
-        const x = Number(product.querySelector(".promo-x").value) || 0;
+        const x =  Number(product.querySelector(".promo-x").value) || 0;
         const y = Number(product.querySelector(".promo-y").value) || 0;
 
         if (
@@ -301,16 +301,40 @@ function calculateGroup(group) {
         );
 
         data.push({
-            index: index,
-            name: name,
-            total: total
-        });
+    index: index,
+    name: name,
+    total: total,
+    promotion: Number(promotion),
+    x: x,
+    y: y
+});
     });
 
     // เรียงสินค้าจากราคาถูกไปแพง
-    data.sort(function (a, b) {
-        return a.total - b.total;
-    });
+data.sort(function (a, b) {
+
+    const priceA = Math.round(a.total * 100) / 100;
+    const priceB = Math.round(b.total * 100) / 100;
+
+    // เงื่อนไขที่ 1: ราคาสุทธิไม่เท่ากัน
+    if (priceA !== priceB) {
+        return priceA - priceB;
+    }
+
+    // เงื่อนไขที่ 2: เป็น Case 10 และค่า X เท่ากัน
+    if (
+        a.promotion === 10 &&
+        b.promotion === 10 &&
+        a.x === b.x &&
+        a.y !== b.y
+    ) {
+        // ค่า Y มากกว่าให้อยู่ก่อน
+        return b.y - a.y;
+    }
+
+    // เงื่อนไขอื่น ๆ คงลำดับเดิม
+    return a.index - b.index;
+});
 
     // กำหนดอันดับแบบ Dense Ranking
     let currentRank = 0;
