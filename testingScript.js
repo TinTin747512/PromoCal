@@ -389,7 +389,6 @@ data.sort(function (a, b) {
         result.innerHTML = `
             ${bookmark}
             <div class="result-text">
-                {item.rank}
                 <span class="medal">${medal}</span>
                 <br>
                 สินค้าชิ้นที่ #${item.index + 1} :
