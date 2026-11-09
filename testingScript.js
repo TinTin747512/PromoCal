@@ -389,9 +389,8 @@ data.sort(function (a, b) {
         result.innerHTML = `
             ${bookmark}
             <div class="result-text">
-                <span class="medal">${medal}</span>
-                <br>
-                สินค้าชิ้นที่ #${item.index + 1} :
+                <span class="medal">${medal}</span>
+                สินค้าชิ้นที่ #${item.index + 1}<br>
                 <span class="result-name">
                     ${escapeHTML(item.name)}
                 </span>
