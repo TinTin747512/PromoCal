@@ -376,7 +376,7 @@ data.sort(function (a, b) {
 
         if (item.rank === 1) {
             className = "first";
-            medal = "🥇";
+            medal = "คุ้มที่สุด🥇";
             bookmark = '<div class="bookmark"></div>';
         } else if (item.rank === 2) {
             className = "second";
@@ -389,7 +389,7 @@ data.sort(function (a, b) {
         result.innerHTML = `
             ${bookmark}
             <div class="result-text">
-                อันดับ ${item.rank}
+                {item.rank}
                 <span class="medal">${medal}</span>
                 <br>
                 สินค้าชิ้นที่ #${item.index + 1} :
