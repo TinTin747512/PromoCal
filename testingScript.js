@@ -300,31 +300,28 @@ function calculateGroup(group) {
        price, quantity, promotion, x, y
       );
 
-      // คำนวณจำนวนสินค้าที่ได้รับฟรี
-      let freeUnits = 0;
+// คำนวณจำนวนสินค้าที่ได้รับจริง
+let receivedUnits = quantity;
 
-      if (Number(promotion) === 10 && x > 0 && y > 0) {
-          const setSize = x + y;
-          const fullSets = Math.floor(quantity / setSize);
-          const remaining = quantity % setSize;
+if (Number(promotion) === 10 && x > 0 && y > 0) {
+    const setSize = x + y;
+    const remaining = quantity % setSize;
 
-          const freeFromRemaining = Math.min(
-              Math.max(remaining - x, 0),
-        y
-    );
-
-    freeUnits = fullSets * y + freeFromRemaining;
+    // ถ้าซื้อเกิน x ในชุดสุดท้าย ให้ได้ของแถมครบ y ของชุดนั้น
+    if (remaining > x) {
+        receivedUnits = quantity + (y - (remaining - x));
+    }
 }
-        data.push({
-    index: index,
-    name: name,
-    total: total,
-    promotion: Number(promotion),
-    x: x,
-    y: y,
-    quantity: quantity,
-    promotion: Number(promotion),
-    freeUnits: freeUnits
+
+    data.push({
+        index: index,
+        name: name,
+        total: total,
+        promotion: Number(promotion),
+        x: x,
+        y: y,
+        quantity: quantity,
+        receivedUnits: receivedUnits
       });
     });
 
@@ -418,9 +415,8 @@ data.sort(function (a, b) {
                 </span>
 
       ${item.promotion === 10 ? `
-          <br>
-          ได้รับ:
-          ${formatNumber(item.quantity + item.freeUnits)} หน่วย
+        <br>
+        ได้รับ: ${formatNumber(item.receivedUnits)} หน่วย
 ` : ""}
             </div>
         `;
