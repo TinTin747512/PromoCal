@@ -420,7 +420,7 @@ data.sort(function (a, b) {
       ${item.promotion === 10 ? `
           <br>
           ได้รับ:
-          ${formatNumber(item.quantity)} หน่วย
+          ${formatNumber(item.quantity + freeUnits)} หน่วย
 ` : ""}
             </div>
         `;
