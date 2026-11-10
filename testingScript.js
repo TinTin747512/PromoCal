@@ -297,17 +297,35 @@ function calculateGroup(group) {
         ) return;
 
         const total = calculatePromotion(
-            price, quantity, promotion, x, y
-        );
+       price, quantity, promotion, x, y
+      );
 
+      // คำนวณจำนวนสินค้าที่ได้รับฟรี
+      let freeUnits = 0;
+
+      if (Number(promotion) === 10 && x > 0 && y > 0) {
+          const setSize = x + y;
+          const fullSets = Math.floor(quantity / setSize);
+          const remaining = quantity % setSize;
+
+          const freeFromRemaining = Math.min(
+              Math.max(remaining - x, 0),
+        y
+    );
+
+    freeUnits = fullSets * y + freeFromRemaining;
+}
         data.push({
     index: index,
     name: name,
     total: total,
     promotion: Number(promotion),
     x: x,
-    y: y
-});
+    y: y,
+    quantity: quantity,
+    promotion: Number(promotion),
+    freeUnits: freeUnits
+      });
     });
 
     // เรียงสินค้าจากราคาถูกไปแพง
@@ -389,7 +407,8 @@ data.sort(function (a, b) {
         result.innerHTML = `
             ${bookmark}
             <div class="result-text">
-                <span class="medal">${medal}</span>
+                <span class="medal">${medal}</span>
+
                 สินค้าชิ้นที่ #${item.index + 1}
                 <span class="result-name"><br>
                     ${escapeHTML(item.name)} : 
@@ -397,6 +416,12 @@ data.sort(function (a, b) {
                 <span class="result-price">
                     ${formatNumber(item.total)} บาท
                 </span>
+
+      ${item.promotion === 10 ? `
+          <br>
+          ได้รับ:
+          ${formatNumber(item.quantity)} หน่วย
+` : ""}
             </div>
         `;
 
