@@ -342,7 +342,7 @@ body {
 
 /* ถูกที่สุด */
 
-.result-box.first .result-name item.total{
+.result-box.first .result-name .item.total{
     color: #82c94f;
 }
 
