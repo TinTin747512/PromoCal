@@ -199,7 +199,7 @@ function calculatePromotion(price, quantity, promoType, x, y) {
             break;
 
         case 5: // ซื้อถึง X หน่วย ลด Y บาทต่อหน่วย
-            if (enoughUnits) total = (Price - y) * quantity;
+            if (enoughUnits) total = (price - y) * quantity;
             break;
 
         case 6: // ทุกชุด X หน่วย ลด Y%
