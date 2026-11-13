@@ -33,7 +33,7 @@ function createProductBox() {
             <div class="input-wrap">
                 <select class="promotion-select">
                     <option value="0">ไม่มีโปรโมชั่น</option>
-                     <option value="13">1.ราคาสมาชิก a บาท</option>
+                    <option value="13">1.ราคาสมาชิก a บาท</option>
                     <option value="1">2.ลด a บาทต่อหน่วย</option>
                     <option value="2">3.ลด a%</option>
                     <option value="3">4.ซื้อครบ a หน่วย ราคา b บาท</option>
@@ -289,11 +289,26 @@ function calculateGroup(group) {
         const x =  Number(product.querySelector(".promo-x").value) || 0;
         const y = Number(product.querySelector(".promo-y").value) || 0;
 
+    // ตรวจสอบว่าจำนวนสินค้าเป็นจำนวนเต็มหรือไม่
+    const type = Number(promotion);
+
+    const mustBeInteger =
+         Number.isInteger(quantity) &&
+         (
+            ![3, 4, 5, 6, 7, 8, 9, 10].includes(type) ||
+           Number.isInteger(x)
+        ) &&
+        (
+            type !== 10 ||
+           Number.isInteger(y)
+        );
+
         if (
             !Number.isFinite(price) ||
             !Number.isFinite(quantity) ||
             price < 0 ||
-            quantity < 0
+            quantity < 0 ||
+            !mustBeInteger
         ) return;
 
         const total = calculatePromotion(
