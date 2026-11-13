@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://tintin747512.github.io/PromoCal/sitemap.xml
