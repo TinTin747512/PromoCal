@@ -7,16 +7,26 @@ body {
     padding: 30px 20px 60px;
 
     font-family: Arial, "Noto Sans Thai", sans-serif;
-
     color: #292929;
+
+    position: relative;
+    isolation: isolate;
+    background: transparent;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
 
     background-image: url("./BG2.png");
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
-    background-attachment: fixed;
-}
 
+    z-index: -1;
+    pointer-events: none;
+}
 /* =========================
    หน้าหลัก
 ========================= */
