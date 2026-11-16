@@ -620,4 +620,19 @@ body {
         border-radius: 14px;
         font-size: 16px;
     }
+    
+	html,
+	body {
+    	background-attachment: scroll !important;
+	}
+
+	body {
+   		background-size: cover;
+    	background-position: center center;
+	}
+
+	button:active,
+	button:focus {
+    	transform: none !important;
+	}
 }
