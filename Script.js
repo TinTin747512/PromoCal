@@ -44,7 +44,7 @@ function createProductBox() {
                     <option value="7">9.ซื้อ a หน่วยขึ้นไป ลด b%</option>
                     <option value="9">10.ซื้อ a หน่วยขึ้นไป เหลือหน่วยละ b บาท</option>
                     <option value="11">11.ซื้อครบ a บาท ลด b บาท</option>
-                    <option value="12">12.ซื้อครบ a บาท ลด b%</option>
+                    <option value="12">12.ซื้อขั้นต่ำ a บาท ลด b%</option>
                     <option value="10">13.ซื้อ a แถม b</option>
                 </select>
             </div>
