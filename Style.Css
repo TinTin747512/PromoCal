@@ -14,7 +14,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: repeat;
-    background-attachment: scroll;
+    background-attachment: fixed;
 }
 
 /* =========================
@@ -620,14 +620,4 @@ body {
         border-radius: 14px;
         font-size: 16px;
 	}
-    
-@media (max-width: 1024px) {
-    html,
-    body {
-        background-attachment: scroll !important;
-        background-size: cover !important;
-        background-position: center top !important;
-        background-repeat: no-repeat;
-    }
-}
 }
