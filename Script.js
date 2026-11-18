@@ -323,7 +323,7 @@ if (Number(promotion) === 10 && x > 0 && y > 0) {
     const remaining = quantity % setSize;
 
     // ถ้าซื้อเกิน x ในชุดสุดท้าย ให้ได้ของแถมครบ y ของชุดนั้น
-    if (remaining > x) {
+    if (remaining >= x) {
         receivedUnits = quantity + (y - (remaining - x));
     }
 }
