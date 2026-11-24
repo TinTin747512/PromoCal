@@ -32,20 +32,20 @@ function createProductBox() {
             <label>โปรโมชั่น</label>
             <div class="input-wrap">
                 <select class="promotion-select">
-                    <option value="0">ไม่มีโปรโมชั่น</option>
-                    <option value="13">1.ราคาสมาชิก a บาท</option>
-                    <option value="1">2.ลด a บาทต่อหน่วย</option>
-                    <option value="2">3.ลด a%</option>
-                    <option value="3">4.ซื้อครบ a หน่วย ราคา b บาท</option>
-                    <option value="4">5.ซื้อครบ a หน่วย ลด b บาท</option>
-                    <option value="6">6.ซื้อครบ a หน่วย ลด b%</option>
-                    <option value="8">7.ซื้อครบ a หน่วย เหลือหน่วยละ b บาท</option>
-                    <option value="5">8.ซื้อ a หน่วยขึ้นไป ลด b บาทต่อหน่วย</option>
-                    <option value="7">9.ซื้อ a หน่วยขึ้นไป ลด b%</option>
-                    <option value="9">10.ซื้อ a หน่วยขึ้นไป เหลือหน่วยละ b บาท</option>
-                    <option value="11">11.ซื้อครบ a บาท ลด b บาท</option>
-                    <option value="12">12.ซื้อขั้นต่ำ a บาท ลด b%</option>
-                    <option value="10">13.ซื้อ a แถม b</option>
+                    <option value="0">1.ไม่มีโปรโมชั่น</option>
+                    <option value="13">2.ราคาสมาชิก a บาท</option>
+                    <option value="1">3.ลด a บาทต่อหน่วย</option>
+                    <option value="2">4.ลด a%</option>
+                    <option value="3">5.ซื้อครบ a หน่วย ราคา b บาท</option>
+                    <option value="4">6.ซื้อครบ a หน่วย ลด b บาท</option>
+                    <option value="6">7.ซื้อครบ a หน่วย ลด b%</option>
+                    <option value="8">8.ซื้อครบ a หน่วย เหลือหน่วยละ b บาท</option>
+                    <option value="5">9.ซื้อ a หน่วยขึ้นไป ลด b บาทต่อหน่วย</option>
+                    <option value="7">10.ซื้อ a หน่วยขึ้นไป ลด b%</option>
+                    <option value="9">11.ซื้อ a หน่วยขึ้นไป เหลือหน่วยละ b บาท</option>
+                    <option value="11">12.ซื้อครบ a บาท ลด b บาท</option>
+                    <option value="12">13.ซื้อขั้นต่ำ a บาท ลด b%</option>
+                    <option value="10">14.ซื้อ a แถม b</option>
                 </select>
             </div>
 
